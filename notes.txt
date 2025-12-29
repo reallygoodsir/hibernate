@@ -1,0 +1,34 @@
+JPA - Java Persistence API
+
+JPA Providers/Implementations:
+    Hibernate
+DAO
+    Hibernate
+        DataSource
+             Connection Pool
+                  JDBC
+                     MySQl Driver
+
+PLAIN OLD JAVA OBJECT (POJO)
+Object Relational Mapping (ORM)
+
+Class <-> DB Table
+User  <-> users
+
+new User(1, "Bil")
+new User(2, "Jon")
+
+Object Relational Mapping Approaches:
+    1. Mapping using xml file configuration
+    2. Java annotations
+
+
+
+ 1. .createEntityManagerFactory("myPU-xml") is called - jpa searches meta-inf/persistence.xml to get the provider, properties, and the mapping file (if there is one provided)
+ 2. jpa finds hibernate as the provider, initializes the properties, either creates a mapping using the provided mapping file (orm.xml) or processes annotations in all entity classes
+ 3. .createEntityManager() is called - hibernate creates a manager with a session and a persistence context
+ 4. .getTransaction().begin() is called - a jdbc connection is obtained from the connection pool, autocommit is disabled, a db transaction begins
+ 5. a user entity is created
+ 6. em.persist(user) is called - hibernate registers the user inside the persistence context, marks it as a pending insert (because user has no id)
+ 7. em.getTransaction().commit() is called - hibernate generates all sql queries for the pending entities in persistence context, executes the queries
+ 8. since the user has no id provided, after creating a new user in the db, hibernate assigns that created id to the user (the id is auto generated as stated in the xml)

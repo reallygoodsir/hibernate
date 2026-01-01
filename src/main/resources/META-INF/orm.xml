@@ -7,6 +7,12 @@
             http://xmlns.jcp.org/xml/ns/persistence/orm_2_2.xsd"
         version="2.2">
 
+    <named-query name="User.findByEmail">
+        <query>
+            SELECT u FROM UserEntity u WHERE u.email = :email
+        </query>
+    </named-query>
+
     <entity class="com.really.good.sir.jpa.UserEntity" access="FIELD">
         <table name="users"/>
 

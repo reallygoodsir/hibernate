@@ -32,3 +32,100 @@ Object Relational Mapping Approaches:
  6. em.persist(user) is called - hibernate registers the user inside the persistence context, marks it as a pending insert (because user has no id)
  7. em.getTransaction().commit() is called - hibernate generates all sql queries for the pending entities in persistence context, executes the queries
  8. since the user has no id provided, after creating a new user in the db, hibernate assigns that created id to the user (the id is auto generated as stated in the xml)
+
+
+
+============================
+
+create
+update
+delete
+find
+
+JPA - Criteria API
+JPA - JPQL
+JPA - Named Query
+JPA - Native Query
+
+I know Java, SQL, MySQL.
+I want to learn JPA - Criteria API.
+I have the following JPA configuration:
+<persistence xmlns="http://xmlns.jcp.org/xml/ns/persistence"
+             version="2.2">
+
+    <persistence-unit name="myPU">
+
+        <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
+
+        <properties>
+            <!-- JDBC -->
+            <property name="javax.persistence.jdbc.url"
+                      value="jdbc:mysql://localhost:3306/jpa_demo"/>
+            <property name="javax.persistence.jdbc.user" value="root"/>
+            <property name="javax.persistence.jdbc.password" value="root"/>
+            <property name="javax.persistence.jdbc.driver"
+                      value="com.mysql.cj.jdbc.Driver"/>
+
+            <!-- Hibernate -->
+            <property name="hibernate.dialect"
+                      value="org.hibernate.dialect.MySQL8Dialect"/>
+            <property name="hibernate.show_sql" value="true"/>
+            <property name="hibernate.format_sql" value="false"/>
+        </properties>
+
+    </persistence-unit>
+
+    <persistence-unit name="myPU-xml">
+        <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
+
+        <!-- Explicitly link orm.xml -->
+        <mapping-file>META-INF/orm.xml</mapping-file>
+
+        <properties>
+            <property name="javax.persistence.jdbc.url"
+                      value="jdbc:mysql://localhost:3306/jpa_demo"/>
+            <property name="javax.persistence.jdbc.user" value="root"/>
+            <property name="javax.persistence.jdbc.password" value="root"/>
+            <property name="javax.persistence.jdbc.driver"
+                      value="com.mysql.cj.jdbc.Driver"/>
+
+            <property name="hibernate.dialect"
+                      value="org.hibernate.dialect.MySQL8Dialect"/>
+            <property name="hibernate.show_sql" value="true"/>
+            <property name="hibernate.format_sql" value="false"/>
+        </properties>
+    </persistence-unit>
+</persistence>
+
+AND
+<?xml version="1.0" encoding="UTF-8"?>
+<entity-mappings
+        xmlns="http://xmlns.jcp.org/xml/ns/persistence/orm"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="
+            http://xmlns.jcp.org/xml/ns/persistence/orm
+            http://xmlns.jcp.org/xml/ns/persistence/orm_2_2.xsd"
+        version="2.2">
+
+    <entity class="com.really.good.sir.jpa.UserEntity" access="FIELD">
+        <table name="users"/>
+
+        <attributes>
+            <id name="id">
+                <generated-value strategy="IDENTITY"/>
+            </id>
+
+            <basic name="userName">
+                <column name="name"/>
+            </basic>
+
+            <basic name="email">
+                <column name="email"/>
+            </basic>
+        </attributes>
+    </entity>
+
+</entity-mappings>
+
+
+Write 2 examples using JPA - Criteria API.

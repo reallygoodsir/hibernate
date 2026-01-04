@@ -1,9 +1,18 @@
 <persistence xmlns="http://xmlns.jcp.org/xml/ns/persistence"
              version="2.2">
 
-    <persistence-unit name="myPU">
+    <persistence-unit name="myPU-relationships">
 
         <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
+
+        <mapping-file>META-INF/orm.xml</mapping-file>
+
+        <class>com.really.good.sir.jpa.relationships.onetoone.User</class>
+        <class>com.really.good.sir.jpa.relationships.onetoone.Credential</class>
+        <class>com.really.good.sir.jpa.relationships.onetomany.Customer</class>
+        <class>com.really.good.sir.jpa.relationships.onetomany.Order</class>
+        <class>com.really.good.sir.jpa.relationships.manytomany.Student</class>
+        <class>com.really.good.sir.jpa.relationships.manytomany.Course</class>
 
         <properties>
             <!-- JDBC -->

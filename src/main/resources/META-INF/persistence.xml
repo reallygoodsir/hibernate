@@ -1,55 +1,131 @@
 <persistence xmlns="http://xmlns.jcp.org/xml/ns/persistence"
              version="2.2">
 
-    <persistence-unit name="myPU-relationships">
+<!--    <persistence-unit name="myPU-relationships">-->
 
+<!--        <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>-->
+
+<!--        <mapping-file>META-INF/orm____.xml</mapping-file>-->
+
+<!--        <class>com.really.good.sir.jpa.relationships.onetoone.User</class>-->
+<!--        <class>com.really.good.sir.jpa.relationships.onetoone.Credential</class>-->
+<!--        <class>com.really.good.sir.jpa.relationships.onetomany.Customer</class>-->
+<!--        <class>com.really.good.sir.jpa.relationships.onetomany.Order</class>-->
+<!--        <class>com.really.good.sir.jpa.relationships.manytomany.Student</class>-->
+<!--        <class>com.really.good.sir.jpa.relationships.manytomany.Course</class>-->
+
+<!--        <exclude-unlisted-classes>true</exclude-unlisted-classes>-->
+<!--        -->
+<!--        <properties>-->
+<!--            &lt;!&ndash; JDBC &ndash;&gt;-->
+<!--            <property name="hibernate.archive.autodetection" value="none"/>-->
+
+<!--            <property name="javax.persistence.jdbc.url"-->
+<!--                      value="jdbc:mysql://localhost:3306/jpa_demo"/>-->
+<!--            <property name="javax.persistence.jdbc.user" value="root"/>-->
+<!--            <property name="javax.persistence.jdbc.password" value="root"/>-->
+<!--            <property name="javax.persistence.jdbc.driver"-->
+<!--                      value="com.mysql.cj.jdbc.Driver"/>-->
+
+<!--            &lt;!&ndash; Hibernate &ndash;&gt;-->
+<!--            <property name="hibernate.dialect"-->
+<!--                      value="org.hibernate.dialect.MySQL8Dialect"/>-->
+<!--            <property name="hibernate.show_sql" value="true"/>-->
+<!--            <property name="hibernate.format_sql" value="false"/>-->
+<!--        </properties>-->
+
+<!--    </persistence-unit>-->
+
+<!--    <persistence-unit name="myPU-xml">-->
+<!--        <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>-->
+
+<!--        &lt;!&ndash; Explicitly link orm____.xml &ndash;&gt;-->
+<!--        <mapping-file>META-INF/orm____.xml</mapping-file>-->
+
+<!--        <exclude-unlisted-classes>true</exclude-unlisted-classes>-->
+
+<!--        <properties>-->
+<!--            <property name="hibernate.archive.autodetection" value="none"/>-->
+
+<!--            <property name="javax.persistence.jdbc.url"-->
+<!--                      value="jdbc:mysql://localhost:3306/jpa_demo"/>-->
+<!--            <property name="javax.persistence.jdbc.user" value="root"/>-->
+<!--            <property name="javax.persistence.jdbc.password" value="root"/>-->
+<!--            <property name="javax.persistence.jdbc.driver"-->
+<!--                      value="com.mysql.cj.jdbc.Driver"/>-->
+
+<!--            <property name="hibernate.dialect"-->
+<!--                      value="org.hibernate.dialect.MySQL8Dialect"/>-->
+<!--            <property name="hibernate.show_sql" value="true"/>-->
+<!--            <property name="hibernate.format_sql" value="false"/>-->
+<!--        </properties>-->
+<!--    </persistence-unit>-->
+
+    <persistence-unit name="pu-single-table">
         <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
 
-        <mapping-file>META-INF/orm.xml</mapping-file>
+        <class>com.really.good.sir.jpa.advancedmappings.singletable.Vehicle</class>
+        <class>com.really.good.sir.jpa.advancedmappings.singletable.Car</class>
+        <class>com.really.good.sir.jpa.advancedmappings.singletable.Bike</class>
 
-        <class>com.really.good.sir.jpa.relationships.onetoone.User</class>
-        <class>com.really.good.sir.jpa.relationships.onetoone.Credential</class>
-        <class>com.really.good.sir.jpa.relationships.onetomany.Customer</class>
-        <class>com.really.good.sir.jpa.relationships.onetomany.Order</class>
-        <class>com.really.good.sir.jpa.relationships.manytomany.Student</class>
-        <class>com.really.good.sir.jpa.relationships.manytomany.Course</class>
+        <exclude-unlisted-classes>true</exclude-unlisted-classes>
 
         <properties>
-            <!-- JDBC -->
+            <property name="hibernate.archive.autodetection" value="none"/>
+
             <property name="javax.persistence.jdbc.url"
-                      value="jdbc:mysql://localhost:3306/jpa_demo"/>
+                      value="jdbc:mysql://localhost:3306/jpa_single_table"/>
             <property name="javax.persistence.jdbc.user" value="root"/>
             <property name="javax.persistence.jdbc.password" value="root"/>
-            <property name="javax.persistence.jdbc.driver"
-                      value="com.mysql.cj.jdbc.Driver"/>
-
-            <!-- Hibernate -->
             <property name="hibernate.dialect"
                       value="org.hibernate.dialect.MySQL8Dialect"/>
-            <property name="hibernate.show_sql" value="true"/>
-            <property name="hibernate.format_sql" value="false"/>
+            <property name="hibernate.hbm2ddl.auto" value="validate"/>
         </properties>
-
     </persistence-unit>
 
-    <persistence-unit name="myPU-xml">
+    <!-- ================= JOINED ================= -->
+    <persistence-unit name="pu-joined">
         <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
 
-        <!-- Explicitly link orm.xml -->
-        <mapping-file>META-INF/orm.xml</mapping-file>
+        <class>com.really.good.sir.jpa.advancedmappings.joinedtable.Vehicle</class>
+        <class>com.really.good.sir.jpa.advancedmappings.joinedtable.Car</class>
+        <class>com.really.good.sir.jpa.advancedmappings.joinedtable.Bike</class>
+
+        <exclude-unlisted-classes>true</exclude-unlisted-classes>
 
         <properties>
+            <property name="hibernate.archive.autodetection" value="none"/>
+
             <property name="javax.persistence.jdbc.url"
-                      value="jdbc:mysql://localhost:3306/jpa_demo"/>
+                      value="jdbc:mysql://localhost:3306/jpa_joined"/>
             <property name="javax.persistence.jdbc.user" value="root"/>
             <property name="javax.persistence.jdbc.password" value="root"/>
-            <property name="javax.persistence.jdbc.driver"
-                      value="com.mysql.cj.jdbc.Driver"/>
-
             <property name="hibernate.dialect"
                       value="org.hibernate.dialect.MySQL8Dialect"/>
-            <property name="hibernate.show_sql" value="true"/>
-            <property name="hibernate.format_sql" value="false"/>
+        </properties>
+    </persistence-unit>
+
+
+    <!-- ================= TABLE PER CLASS ================= -->
+    <persistence-unit name="pu-table-per-class">
+        <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
+
+        <class>com.really.good.sir.jpa.advancedmappings.tableperclass.Vehicle</class>
+        <class>com.really.good.sir.jpa.advancedmappings.tableperclass.Car</class>
+        <class>com.really.good.sir.jpa.advancedmappings.tableperclass.Bike</class>
+
+        <exclude-unlisted-classes>true</exclude-unlisted-classes>
+
+        <properties>
+            <property name="hibernate.archive.autodetection" value="none"/>
+
+            <property name="javax.persistence.jdbc.url"
+                      value="jdbc:mysql://localhost:3306/jpa_table_per_class"/>
+            <property name="javax.persistence.jdbc.user" value="root"/>
+            <property name="javax.persistence.jdbc.password" value="root"/>
+            <property name="hibernate.dialect"
+                      value="org.hibernate.dialect.MySQL8Dialect"/>
+            <property name="hibernate.hbm2ddl.auto" value="update"/>
         </properties>
     </persistence-unit>
 </persistence>

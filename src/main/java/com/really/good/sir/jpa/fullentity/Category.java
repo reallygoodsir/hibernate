@@ -1,9 +1,14 @@
-package com.really.good.sir.jpa.relationships.onetoone;
+package com.really.good.sir.jpa.fullentity;
 
-public class Credential {
+import javax.persistence.*;
+
+@Entity
+@Table(name = "category")
+class Category {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
-    private User user;
 
     public Long getId() {
         return id;
@@ -20,13 +25,5 @@ public class Credential {
     public void setName(String name) {
         this.name = name;
     }
-
-    public User getUser() {
-        return user;
-    }
-
-    public void setUser(User user) {
-        this.user = user;
-    }
-
 }
+

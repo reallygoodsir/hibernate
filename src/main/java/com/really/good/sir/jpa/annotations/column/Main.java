@@ -1,14 +1,15 @@
 package com.really.good.sir.jpa.annotations.column;
 
-import javax.persistence.*;
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
 
 public class Main {
 
     public static void main(String[] args) {
-        EntityManagerFactory emf = Persistence.createEntityManagerFactory("mypu-column");
+        // Normal JPA EntityManager
+        EntityManagerFactory emf = Configuration.createEntityManagerFactory();
         EntityManager em = emf.createEntityManager();
 
-        // Insert phase
         em.getTransaction().begin();
         User user = new User(
                 "alice@example.com",
@@ -22,19 +23,12 @@ public class Main {
         Long id = user.getId();
         em.clear();
 
-        System.out.println("// ============================");
-        System.out.println("// FETCHING USER FROM DATABASE");
-        System.out.println("// ============================");
+        System.out.println(">>> Fetching user via JPA");
+        User loaded = em.find(User.class, id);
 
-        // Fetch without initializing biography yet
-        User loadedUser = em.find(User.class, id);
-
-        System.out.println("Email: " + loadedUser.getEmail());
-        System.out.println("First Name (EAGER): " + loadedUser.getFirstName());
-        System.out.println("Last Name (DEFAULT EAGER): " + loadedUser.getLastName());
-
-        System.out.println("// Biography is LAZY, Hibernate should fetch on access now");
-        System.out.println("Biography (LAZY): " + loadedUser.getBiography());
+        System.out.println("Email: " + loaded.getEmail());
+        System.out.println("First Name: " + loaded.getFirstName());
+        System.out.println("Biography (lazy): " + loaded.getBiography());
 
         em.close();
         emf.close();

@@ -1,19 +1,21 @@
-package com.really.good.sir.jpa.id;
+package com.really.good.sir.jpa.annotations.id;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
+
 public class Main {
     public static void main(String[] args) {
-        EntityManagerFactory emf = Persistence.createEntityManagerFactory("myPU-sequence");
+        EntityManagerFactory emf = Configuration.createEntityManagerFactory();
         EntityManager em = emf.createEntityManager();
 
         em.getTransaction().begin();
-        User user = new User("john_doe");
+
+        User user = new User("Peter", 33);
         em.persist(user);
+
         em.getTransaction().commit();
 
-        System.out.println("Generated ID = " + user.getId());
+        System.out.println("User saved with ID: " + user.getId());
 
         em.close();
         emf.close();

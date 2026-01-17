@@ -1,26 +1,24 @@
 package com.really.good.sir.jpa.fullentity;
 
-import javax.persistence.*;
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.Date;
 
-public class FullEntityTest {
+public class Main {
 
     public static void main(String[] args) {
 
-        // Embedded object
         Address address = new Address();
         address.setStreet("123 Main St");
         address.setCity("Kyiv");
         address.setCountry("Ukraine");
 
-        // Related entity
         Category category = new Category();
         category.setName("Test Category");
 
-        // Full entity
         FullEntity fullEntity = new FullEntity();
         fullEntity.setName("John Doe");
         fullEntity.setAge(30);
@@ -42,18 +40,12 @@ public class FullEntityTest {
         fullEntity.setAddress(address);
         fullEntity.setCategory(category);
 
-        // EntityManager
-        EntityManagerFactory emf = Persistence.createEntityManagerFactory("myPU-full-entity");
+        EntityManagerFactory emf = Configuration.createEntityManagerFactory();
         EntityManager em = emf.createEntityManager();
 
         em.getTransaction().begin();
-
-        // Persist category first
         em.persist(category);
-
-        // Persist full entity
         em.persist(fullEntity);
-
         em.getTransaction().commit();
 
         System.out.println("Saved entity: " + fullEntity);

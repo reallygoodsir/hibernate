@@ -13,7 +13,7 @@
         </query>
     </named-query>
 
-    <entity class="com.really.good.sir.jpa.UserEntity" access="FIELD">
+    <entity class="com.really.good.sir.jpa.basic.UserEntity" access="FIELD">
         <table name="users"/>
 
         <attributes>

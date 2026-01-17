@@ -107,7 +107,7 @@ AND
             http://xmlns.jcp.org/xml/ns/persistence/orm_2_2.xsd"
         version="2.2">
 
-    <entity class="com.really.good.sir.jpa.UserEntity" access="FIELD">
+    <entity class="com.really.good.sir.jpa.basic.UserEntity" access="FIELD">
         <table name="users"/>
 
         <attributes>

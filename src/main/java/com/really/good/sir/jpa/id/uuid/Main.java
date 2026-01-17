@@ -1,16 +1,16 @@
 package com.really.good.sir.jpa.id.uuid;
 
-import javax.persistence.*;
+import javax.persistence.EntityManager;
 
-public class MainUUID {
+public class Main {
     public static void main(String[] args) {
-        EntityManagerFactory emf = Persistence.createEntityManagerFactory("pu-uuid");
-        EntityManager em = emf.createEntityManager();
+
+        EntityManager em = Configuration.getEntityManagerFactory().createEntityManager();
 
         em.getTransaction().begin();
 
-        UserUUID u1 = new UserUUID("Charlie", 28);
-        UserUUID u2 = new UserUUID("Diana", 32);
+        User u1 = new User("Charlie", 28);
+        User u2 = new User("Diana", 32);
 
         em.persist(u1);
         em.persist(u2);
@@ -21,6 +21,5 @@ public class MainUUID {
         System.out.println("User 2 UUID: " + u2.getId());
 
         em.close();
-        emf.close();
     }
 }

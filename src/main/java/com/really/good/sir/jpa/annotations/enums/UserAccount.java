@@ -12,10 +12,10 @@ public class UserAccount {
 
     private String username;
 
-    @Enumerated(EnumType.ORDINAL)  // stored as 0,1,2
+    @Enumerated(EnumType.ORDINAL)
     private Status statusOrdinal;
 
-    @Enumerated(EnumType.STRING)   // stored as "PENDING", "ACTIVE", "SUSPENDED"
+    @Enumerated(EnumType.STRING)
     private Status statusString;
 
     public UserAccount() {}

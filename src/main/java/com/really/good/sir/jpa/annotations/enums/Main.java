@@ -1,16 +1,17 @@
 package com.really.good.sir.jpa.annotations.enums;
 
-import javax.persistence.*;
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
 
 public class Main {
     public static void main(String[] args) {
-        EntityManagerFactory emf = Persistence.createEntityManagerFactory("myPU-enum");
+        EntityManagerFactory emf = Configuration.createEntityManagerFactory();
         EntityManager em = emf.createEntityManager();
 
         UserAccount user = new UserAccount(
                 "alice",
-                Status.PENDING,   // ORDINAL stored as 0
-                Status.PENDING    // STRING stored as "PENDING"
+                Status.PENDING,
+                Status.PENDING
         );
 
         em.getTransaction().begin();

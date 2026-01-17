@@ -1,19 +1,23 @@
-package com.really.good.sir.jpa;
+package com.really.good.sir.jpa.basic;
 
 import javax.persistence.*;
 
-//@Entity
-//@Table(name = "users")
+@Entity
+@Table(name = "users")
+@NamedQuery(
+        name = "User.findByEmail",
+        query = "SELECT u FROM UserEntity u WHERE u.email = :email"
+)
 public class UserEntity {
 
-    //    @Id
-//    @GeneratedValue(strategy = GenerationType.IDENTITY)
+        @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    // @Column(name = "name")
+     @Column(name = "name")
     private String userName;
 
-    //@Column(name = "email")
+    @Column(name = "email")
     private String email;
 
     protected UserEntity() {

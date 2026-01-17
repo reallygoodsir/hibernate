@@ -1,21 +1,20 @@
 package com.really.good.sir.jpa.annotations.temporal;
 
-import javax.persistence.*;
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
 import java.util.Date;
 
 public class Main {
     public static void main(String[] args) {
-        EntityManagerFactory emf = Persistence.createEntityManagerFactory("myPU-transient");
+        EntityManagerFactory emf = Configuration.createEntityManagerFactory();
         EntityManager em = emf.createEntityManager();
 
-        // Create entity
         UserEvent event = new UserEvent(
                 "alice",
                 new Date(),
                 "Temporary debug info"
         );
 
-        // Persist
         em.getTransaction().begin();
         em.persist(event);
         em.getTransaction().commit();
@@ -38,4 +37,3 @@ public class Main {
         emf.close();
     }
 }
-

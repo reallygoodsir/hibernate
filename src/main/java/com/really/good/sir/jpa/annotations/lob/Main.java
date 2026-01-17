@@ -1,16 +1,15 @@
 package com.really.good.sir.jpa.annotations.lob;
 
-import javax.persistence.*;
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
 import java.io.IOException;
 import java.io.InputStream;
-import java.nio.charset.StandardCharsets;
 
 public class Main {
     public static void main(String[] args) {
-        EntityManagerFactory emf = Persistence.createEntityManagerFactory("myPU-lob");
+        EntityManagerFactory emf = Configuration.createEntityManagerFactory();
         EntityManager em = emf.createEntityManager();
 
-        // Load JPEG from resources
         byte[] imageBytes;
         try (InputStream is = Main.class.getClassLoader().getResourceAsStream("jpeg-home.jpg")) {
             if (is == null) {
@@ -24,11 +23,8 @@ public class Main {
         }
 
         String largeText = "This is a very large text content. ".repeat(100);
-
-        // Create entity
         Document doc = new Document("My Doc with Image", largeText, imageBytes);
 
-        // Persist
         em.getTransaction().begin();
         em.persist(doc);
         em.getTransaction().commit();
@@ -36,7 +32,6 @@ public class Main {
         Long id = doc.getId();
         em.clear();
 
-        // Fetch from DB
         Document loaded = em.find(Document.class, id);
 
         System.out.println("ID: " + loaded.getId());

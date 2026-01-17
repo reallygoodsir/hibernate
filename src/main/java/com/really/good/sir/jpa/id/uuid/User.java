@@ -6,7 +6,7 @@ import javax.persistence.*;
 
 @Entity
 @Table(name = "users_uuid")
-public class UserUUID {
+public class User {
 
     @Id
     @GeneratedValue(generator = "UUID")
@@ -16,8 +16,8 @@ public class UserUUID {
     private String name;
     private int age;
 
-    public UserUUID() {}
-    public UserUUID(String name, int age) { this.name = name; this.age = age; }
+    public User() {}
+    public User(String name, int age) { this.name = name; this.age = age; }
 
     public String getId() { return id; }
 }

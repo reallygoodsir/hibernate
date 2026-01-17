@@ -132,7 +132,7 @@
     <persistence-unit name="myPU-annotations">
         <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
 
-        <class>com.really.good.sir.jpa.annotations.User</class>
+        <class>com.really.good.sir.jpa.annotations.id.User</class>
         <exclude-unlisted-classes>true</exclude-unlisted-classes>
 
         <properties>
@@ -186,7 +186,7 @@
     <persistence-unit name="pu-table">
         <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
 
-        <class>com.really.good.sir.jpa.id.table.UserTable</class>
+        <class>com.really.good.sir.jpa.id.table.User</class>
         <exclude-unlisted-classes>true</exclude-unlisted-classes>
 
         <properties>
@@ -202,7 +202,7 @@
     <persistence-unit name="pu-uuid">
         <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
 
-        <class>com.really.good.sir.jpa.id.uuid.UserUUID</class>
+        <class>com.really.good.sir.jpa.id.uuid.User</class>
         <exclude-unlisted-classes>true</exclude-unlisted-classes>
 
         <properties>

@@ -1,4 +1,4 @@
-package com.really.good.sir.jpa.annotations;
+package com.really.good.sir.jpa.annotations.id;
 
 import javax.persistence.*;
 

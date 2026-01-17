@@ -1,16 +1,18 @@
 package com.really.good.sir.jpa.id.table;
 
-import javax.persistence.*;
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
 
-public class MainTable {
+public class Main {
     public static void main(String[] args) {
-        EntityManagerFactory emf = Persistence.createEntityManagerFactory("pu-table");
+
+        EntityManagerFactory emf = Configuration.createEntityManagerFactory();
         EntityManager em = emf.createEntityManager();
 
         em.getTransaction().begin();
 
-        UserTable u1 = new UserTable("Alice", 25);
-        UserTable u2 = new UserTable("Bob", 30);
+        User u1 = new User("Alice", 25);
+        User u2 = new User("Bob", 30);
 
         em.persist(u1);
         em.persist(u2);

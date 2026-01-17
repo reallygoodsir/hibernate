@@ -1,4 +1,4 @@
-package com.really.good.sir.jpa;
+package com.really.good.sir.jpa.basic;
 
 import javax.persistence.*;
 import javax.persistence.criteria.*;
@@ -7,9 +7,7 @@ import java.util.List;
 public class UserCriteriaExample {
 
     public static void main(String[] args) {
-        EntityManager em = Persistence
-                .createEntityManagerFactory("myPU-xml")
-                .createEntityManager();
+        EntityManager em = Configuration.createEntityManagerFactory().createEntityManager();
 
         CriteriaBuilder cb = em.getCriteriaBuilder();
         CriteriaQuery<UserEntity> cq = cb.createQuery(UserEntity.class);

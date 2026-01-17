@@ -1,4 +1,4 @@
-package com.really.good.sir.jpa;
+package com.really.good.sir.jpa.basic;
 
 import javax.persistence.*;
 import java.util.List;
@@ -6,9 +6,7 @@ import java.util.List;
 public class UserNamedQueryExample {
 
     public static void main(String[] args) {
-        EntityManager em = Persistence
-                .createEntityManagerFactory("myPU-xml")
-                .createEntityManager();
+        EntityManager em = Configuration.createEntityManagerFactory().createEntityManager();
 
         List<UserEntity> users = em
                 .createNamedQuery("User.findByEmail", UserEntity.class)

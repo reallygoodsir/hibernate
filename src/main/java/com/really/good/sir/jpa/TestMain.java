@@ -21,6 +21,7 @@ import com.really.good.sir.jpa.embeddedpk.EmbeddedPKMain;
 import com.really.good.sir.jpa.fullentity.FullEntityMain;
 import com.really.good.sir.jpa.id.table.IdTableMain;
 import com.really.good.sir.jpa.id.uuid.IdUUIDMain;
+import com.really.good.sir.jpa.proxy.ProxyMain;
 
 public class TestMain {
     public static void main(String[] args) {
@@ -49,5 +50,6 @@ public class TestMain {
         FullEntityMain.main(args);
         IdTableMain.main(args);
         IdUUIDMain.main(args);
+        ProxyMain.main(args);
     }
 }

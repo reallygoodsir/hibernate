@@ -4,7 +4,7 @@ package com.really.good.sir.jpa.cache;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 
-public class Main {
+public class CacheMain {
 
     public static void main(String[] args) {
 

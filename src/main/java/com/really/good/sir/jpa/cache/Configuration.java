@@ -22,10 +22,7 @@ public class Configuration {
                 // L2 cache
                 .applySetting("hibernate.cache.use_second_level_cache", "true")
                 .applySetting("hibernate.cache.use_query_cache", "true")
-                .applySetting("hibernate.cache.region.factory_class",
-                        "org.hibernate.cache.jcache.JCacheRegionFactory")
-                .applySetting("hibernate.javax.cache.provider",
-                        "org.ehcache.jsr107.EhcacheCachingProvider")
+                .applySetting("hibernate.cache.region.factory_class", "org.hibernate.cache.internal.NoCachingRegionFactory")
                 .build();
 
         var metadata = new MetadataSources(registry)

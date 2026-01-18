@@ -3,7 +3,7 @@ package com.really.good.sir.jpa.annotations.column;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 
-public class Main {
+public class AnnotationsColumnMain {
 
     public static void main(String[] args) {
         // Normal JPA EntityManager

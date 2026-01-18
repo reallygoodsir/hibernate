@@ -3,12 +3,8 @@ package com.really.good.sir.jpa.basic;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "users")
-@NamedQuery(
-        name = "User.findByEmail",
-        query = "SELECT u FROM UserEntity u WHERE u.email = :email"
-)
-public class UserEntity {
+@Table(name = "usersold")
+public class UserEntityOld {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -20,11 +16,11 @@ public class UserEntity {
     @Column(name = "email")
     private String email;
 
-    protected UserEntity() {
+    public UserEntityOld() {
         // required by JPA
     }
 
-    public UserEntity(String name, String email) {
+    public UserEntityOld(String name, String email) {
         this.userName = name;
         this.email = email;
     }

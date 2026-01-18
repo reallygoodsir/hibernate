@@ -5,13 +5,13 @@ import javax.persistence.EntityManagerFactory;
 import java.io.IOException;
 import java.io.InputStream;
 
-public class Main {
+public class AnnotationsLobMain {
     public static void main(String[] args) {
         EntityManagerFactory emf = Configuration.createEntityManagerFactory();
         EntityManager em = emf.createEntityManager();
 
         byte[] imageBytes;
-        try (InputStream is = Main.class.getClassLoader().getResourceAsStream("jpeg-home.jpg")) {
+        try (InputStream is = AnnotationsLobMain.class.getClassLoader().getResourceAsStream("jpeg-home.jpg")) {
             if (is == null) {
                 System.out.println("File not found in resources!");
                 return;

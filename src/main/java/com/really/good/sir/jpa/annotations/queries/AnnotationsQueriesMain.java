@@ -2,9 +2,8 @@ package com.really.good.sir.jpa.annotations.queries;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
-import java.util.Map;
 
-public class Main {
+public class AnnotationsQueriesMain {
     public static void main(String[] args) {
         EntityManagerFactory emf = Configuration.createEntityManagerFactory();
         EntityManager em = emf.createEntityManager();

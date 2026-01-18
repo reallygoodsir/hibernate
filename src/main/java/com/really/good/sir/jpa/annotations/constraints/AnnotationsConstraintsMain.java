@@ -11,7 +11,7 @@ import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.Set;
 
-public class Main {
+public class AnnotationsConstraintsMain {
     public static void main(String[] args) {
 
         EntityManagerFactory emf = Configuration.createEntityManagerFactory();

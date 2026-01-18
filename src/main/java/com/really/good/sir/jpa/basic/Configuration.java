@@ -22,6 +22,7 @@ public class Configuration {
 
         var metadata = new MetadataSources(registry)
                 .addAnnotatedClass(UserEntity.class)
+                .addAnnotatedClass(UserEntityOld.class)
                 .buildMetadata();
 
         SessionFactory sessionFactory = metadata.buildSessionFactory();

@@ -4,7 +4,7 @@ import javax.persistence.*;
 import javax.persistence.criteria.*;
 import java.util.List;
 
-public class UserCriteriaExample {
+public class UserCriteriaMain {
 
     public static void main(String[] args) {
         EntityManager em = Configuration.createEntityManagerFactory().createEntityManager();

@@ -15,7 +15,7 @@ public class Configuration {
                 .applySetting("hibernate.connection.username", "root")
                 .applySetting("hibernate.connection.password", "root")
                 .applySetting("hibernate.dialect", "org.hibernate.dialect.MySQL8Dialect")
-                .applySetting("hibernate.hbm2ddl.auto", "update")
+                .applySetting("hibernate.hbm2ddl.auto", "create")
                 .build();
 
         var metadata = new MetadataSources(registry)

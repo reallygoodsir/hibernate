@@ -2,7 +2,7 @@ package com.really.good.sir.jpa.id.uuid;
 
 import javax.persistence.EntityManager;
 
-public class Main {
+public class IdUUIDMain {
     public static void main(String[] args) {
 
         EntityManager em = Configuration.getEntityManagerFactory().createEntityManager();

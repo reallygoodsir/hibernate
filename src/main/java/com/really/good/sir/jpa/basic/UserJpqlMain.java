@@ -3,7 +3,7 @@ package com.really.good.sir.jpa.basic;
 import javax.persistence.*;
 import java.util.List;
 
-public class UserJpqlExample {
+public class UserJpqlMain {
 
     public static void main(String[] args) {
         EntityManager em = Configuration.createEntityManagerFactory().createEntityManager();

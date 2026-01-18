@@ -1,9 +1,9 @@
-package com.really.good.sir.jpa.advancedmappings.tableperclass;
+package com.really.good.sir.jpa.advancedmappings.singletable;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 
-public class Main {
+public class SingleTableMain {
     public static void main(String[] args) {
         EntityManagerFactory emf = Configuration.createEntityManagerFactory();
         EntityManager em = emf.createEntityManager();
@@ -11,11 +11,11 @@ public class Main {
         em.getTransaction().begin();
 
         Car car = new Car();
-        car.setSpeed(220);
-        car.setDoors(2);
+        car.setSpeed(180);
+        car.setDoors(4);
 
         Bike bike = new Bike();
-        bike.setSpeed(30);
+        bike.setSpeed(40);
         bike.setHasPedals(true);
 
         em.persist(car);

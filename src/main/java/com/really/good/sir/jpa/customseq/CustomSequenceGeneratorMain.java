@@ -2,9 +2,9 @@ package com.really.good.sir.jpa.customseq;
 
 import javax.persistence.*;
 
-public class Main {
+public class CustomSequenceGeneratorMain {
     public static void main(String[] args) {
-        EntityManagerFactory emf = Persistence.createEntityManagerFactory("myPU-custom-seq");
+        EntityManagerFactory emf = Configuration.getEntityManagerFactory();
         EntityManager em = emf.createEntityManager();
 
         em.getTransaction().begin();

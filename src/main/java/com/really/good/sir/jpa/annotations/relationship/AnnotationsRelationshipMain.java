@@ -2,7 +2,7 @@ package com.really.good.sir.jpa.annotations.relationship;
 
 import javax.persistence.EntityManager;
 
-public class Main {
+public class AnnotationsRelationshipMain {
 
     public static void main(String[] args) {
 

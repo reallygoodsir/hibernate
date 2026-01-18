@@ -1,26 +1,27 @@
-package com.really.good.sir.jpa.id.table;
+package com.really.good.sir.jpa.advancedmappings.tableperclass;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 
-public class Main {
+public class TablePerClassMain {
     public static void main(String[] args) {
-
         EntityManagerFactory emf = Configuration.createEntityManagerFactory();
         EntityManager em = emf.createEntityManager();
 
         em.getTransaction().begin();
 
-        User u1 = new User("Alice", 25);
-        User u2 = new User("Bob", 30);
+        Car car = new Car();
+        car.setSpeed(220);
+        car.setDoors(2);
 
-        em.persist(u1);
-        em.persist(u2);
+        Bike bike = new Bike();
+        bike.setSpeed(30);
+        bike.setHasPedals(true);
+
+        em.persist(car);
+        em.persist(bike);
 
         em.getTransaction().commit();
-
-        System.out.println("User 1 ID: " + u1.getId());
-        System.out.println("User 2 ID: " + u2.getId());
 
         em.close();
         emf.close();

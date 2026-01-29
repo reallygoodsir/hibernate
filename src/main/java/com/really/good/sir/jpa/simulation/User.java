@@ -5,10 +5,10 @@ import javax.validation.constraints.NotNull;
 
 @Entity
 @Table(name = "users")
-public class Users {
+public class User {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.TABLE)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @Column(name = "email", unique = true)
@@ -19,10 +19,10 @@ public class Users {
     @NotNull
     private String name;
 
-    public Users() {
+    public User() {
     }
 
-    public Users(String email, String name) {
+    public User(String email, String name) {
         this.email = email;
         this.name = name;
     }

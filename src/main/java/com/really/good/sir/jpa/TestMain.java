@@ -22,9 +22,10 @@ import com.really.good.sir.jpa.fullentity.FullEntityMain;
 import com.really.good.sir.jpa.id.table.IdTableMain;
 import com.really.good.sir.jpa.id.uuid.IdUUIDMain;
 import com.really.good.sir.jpa.proxy.ProxyMain;
+import com.really.good.sir.jpa.simulation.MainEntityManager;
 
 public class TestMain {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         JoinTableMain.main(args);
         SingleTableMain.main(args);
         TablePerClassMain.main(args);
@@ -51,5 +52,6 @@ public class TestMain {
         IdTableMain.main(args);
         IdUUIDMain.main(args);
         ProxyMain.main(args);
+        MainEntityManager.main(args);
     }
 }
